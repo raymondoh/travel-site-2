@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
-/* Write your utility classes here */
 @tailwind utilities;
-@import "./test";
+//@import "normalize.css";
+//@import "./base/global";
+@import "./components/test1";

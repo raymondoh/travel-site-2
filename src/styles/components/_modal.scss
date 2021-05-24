@@ -1,0 +1,67 @@
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($white, 0.94);
+  z-index: 5;
+  //flex
+  display: flex;
+  transition: all 0.3s ease-out;
+
+  &--is-visible {
+    // js properties
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.2);
+  }
+
+  &__inner {
+    flex: 1;
+    margin: auto;
+  }
+
+  &__description {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.65;
+    font-size: 1.3rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 1.5rem;
+    @include small {
+      top: 60px;
+      right: 60px;
+      z-index: 10;
+      font-size: 2rem;
+    }
+    @include medium {
+      top: 80px;
+      right: 80px;
+      z-index: 10;
+      font-size: 2rem;
+    }
+    @include large {
+      top: 100px;
+      right: 100px;
+    }
+
+    color: $colorPrimary;
+    cursor: pointer;
+    transform: scaleX(1.2);
+    transform-origin: 100% 0;
+    transition: color 0.3s ease-out;
+
+    &:hover {
+      color: $colorSecondary;
+    }
+  }
+}

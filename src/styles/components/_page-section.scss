@@ -1,0 +1,36 @@
+.page-section {
+  padding: 1.2rem 0;
+  @include medium {
+    padding: 4.5rem 0;
+  }
+  &--no-b-padding-until-medium {
+    padding-bottom: 0; // removes blue bg padding on testimonials section
+    @include medium {
+      padding-bottom: 4.5rem; // put it back on larger screens
+    }
+  }
+  &--no-b-padding-until-large {
+    padding-bottom: 0; // removes blue bg padding on testimonials section
+    @include large {
+      padding-bottom: 4.5rem; // put it back on larger screens
+    }
+  }
+
+  &--blue {
+    background-color: $colorPrimary;
+    color: $white;
+  }
+
+  &--testimonials {
+    background-color: #e0e6ef;
+    @include large {
+      background-image: url("./images/testimonials-bg.jpg");
+      background-color: $colorPrimary;
+      background-position: top center; /* Center the image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      // height: 80vh;
+      // width: 100%;
+    }
+  }
+}

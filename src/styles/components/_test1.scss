@@ -1,0 +1,14 @@
+$bg: yellow;
+body {
+  background: $bg;
+  background-image: url("../images/1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.large-hero {
+  background: $bg;
+  //background-image: url("../images/testimonials-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}

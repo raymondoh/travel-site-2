@@ -1,0 +1,26 @@
+$primary: black;
+$danger: purple;
+$primaryColor: black;
+$mainColor: #344343;
+
+::placeholder {
+  color: gray;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  background-image: url("./assets/images/webpack.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $mainColor;
+}
+@media (min-resolution: 2dppx) {
+  .image {
+    height: 50px;
+    width: 50px;
+    background-image: url("./assets/images/logo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

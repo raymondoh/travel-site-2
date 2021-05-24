@@ -4,21 +4,49 @@ const { merge } = require("webpack-merge");
 const parts = require("./webpack.parts");
 
 const commonConfig = merge([
-  { output: { path: path.resolve(process.cwd(), "dist") } },
+  // {
+  //   //entry: ["./src"],
+  //   entry: [paths.src + "/index.js"],
+  // },
+  {
+    entry: {
+      main: path.resolve(__dirname, "./src/index.js"),
+    },
+    output: {
+      //path: path.resolve(__dirname, "./dist"),
+      path: path.resolve(__dirname, "./dist"),
+      filename: "js/[name].bundle.js",
+      //filename: "assets/js/[name].js",
+      //publicPath: "./",
+    },
+    // entry: "./src/index.js",
+    // output: {
+    //   filename: "js/bundled.js",
+    //   path: path.resolve(process.cwd(), "dist"),
+    //   assetModuleFilename: "images/[hash][ext][query]",
+    //   //filename: "js/[name].[contenthash].bundled.js", // up to us
+    //   //path: path.resolve(process.cwd(), "dist"),
+    //publicPath: "",
+    // },
+  },
   parts.clean(),
-  { entry: ["./src"] },
   parts.page(),
   parts.extractSCSS(),
-  parts.loadImages({ limit: 15000 }),
+  //parts.loadImages({ limit: 150000 }),
+  parts.loadImages(),
   parts.loadJavaScript(), // move to production?
+  parts.copy(),
+  //parts.loadHtml(),
+  //parts.loadSvg(),
 ]);
 
 const productionConfig = merge([
   parts.minifyJavaScript(),
   parts.minifyCSS({ options: { preset: ["default"] } }),
-  parts.eliminateUnusedCSS(),
+
   parts.generateSourceMaps({ type: "source-map" }),
-  //{ optimization: { splitChunks: { chunks: "all" } } },
+  //parts.eliminateUnusedCSS(), //PROBLEM
+  { optimization: { splitChunks: { chunks: "all" } } },
 
   {
     optimization: {
@@ -51,12 +79,3 @@ const getConfig = (mode) => {
   }
 };
 module.exports = getConfig(mode);
-
-// module.exports = {
-//   entry: "./src/index.js",
-//   output: {
-//     path: path.resolve(__dirname, "dist/assets"),
-//     filename: "index_bundle.js",
-//   },
-//   mode: "production",
-// };

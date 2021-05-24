@@ -1,0 +1,94 @@
+// Colors
+$textColor: #333;
+$colorPrimary: #2f5572;
+$colorPrimaryDark: rgba(23, 51, 72, 0.85);
+$currentLinkColor: #fabb69;
+
+$colorSecondary: #d59541;
+$white: #ffffff;
+
+$textShadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+
+// .star {
+//   background: url("./images/icons/star.svg");
+//   background-repeat: no-repeat;
+// }
+
+// Colors
+$white: #ffffff;
+$black: #000000;
+$blue: #0076a3;
+$dark-blue: darken($blue, 10);
+$light-blue: lighten($blue, 10);
+$yellow: #ffba00;
+$green: #548c27;
+$red: #fe2d28;
+
+$text-color: $black;
+$color-primary: #2f5572;
+$color-secondary: #d59541;
+
+$bg-color: $blue;
+$nav-bg-color: $dark-blue;
+
+// Headings
+$heading-color: $yellow;
+$heading-font-family: "Bitter", serif;
+$heading-font-size: (
+  h1: 40px,
+  h2: 36px,
+  h3: 32px,
+  h4: 28px,
+  h5: 24px,
+  h6: 20px,
+);
+
+$paragraph-font-size: 1.2rem;
+$paragraph-font-family: "Open Sans", sans-serif;
+
+// Navigation
+$menu-anchor-font-size: 1.4rem;
+$menu-anchor-color: $white;
+$menu-anchor-hover-color: $yellow;
+
+// Card
+$card-bg-color: $white;
+$card-font-size: 1rem;
+// Visit
+$visit-border-color: $white;
+$visit-heading-color: lighten($yellow, 10);
+$visit-text-color: $white;
+
+//Buttons
+$btn-font-size: 16px;
+$btn-font-weight: bold;
+
+// Table
+$table-color: $white;
+$table-font-size: 1rem;
+$table-caption-color: $yellow;
+$table-hover-color: darken($yellow, 5);
+
+// Services
+$paragraph-font-size-services: 1.2rem;
+
+// Footer
+$footer-bg: $dark-blue;
+$footer-color: $white;
+$site-info-bg-color: $yellow;
+
+//MEDIA QUERY MANAGER
+//Grid & responsive
+$columns: 12;
+$grid-max-width: 1200px;
+
+$breakpoint: (
+  phone: 480px,
+  tablet: 768px,
+  desktop: 1024px,
+);
+
+// .star {
+//   background: url("./images/icons/star.svg");
+//   background-repeat: no-repeat;
+// }

@@ -1,0 +1,65 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  //@include border-box; ??
+}
+
+html {
+  // define what 1rem is
+  font-size: 100%; // 10px / 16px = .625 * 100 = 62.5%
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  //color: $textColor;
+  //background-image: url("./assets/images/hero--medium.jpg");
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  //color: $colorSecondary;
+}
+
+::selection {
+  //background-color: $colorSecondary;
+  color: white;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // define what 1rem is
+  font-size: 100%; // 10px / 16px = .625 * 100 = 62.5%
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Robote", sans-serif;
+  //color: $textColor;
+  background: mediumslateblue;
+}
+
+img {
+  max-height: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: red;
+  color: white;
+}
