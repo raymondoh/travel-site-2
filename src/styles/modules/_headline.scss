@@ -1,21 +1,22 @@
 .headline {
   font-weight: 300;
-  font-size: 1.9rem;
-  color: $colorPrimary;
-  @include small {
+  font-size: 1.875rem;
+  color: $mainBlue;
+  @include phone {
     font-size: 2.875rem;
   }
-
   &--centered {
     text-align: center;
   }
+
   &--orange {
-    color: $colorSecondary;
+    color: $mainOrange;
   }
+
   &--small {
     font-size: 1.2rem;
-    @include small {
-      font-size: 1.875rem;
+    @include phone {
+      font-size: 1.8rem;
     }
   }
   &--narrow {
@@ -26,13 +27,23 @@
   &--light {
     font-weight: 100;
   }
+
   &--b-margin-small {
     margin-bottom: 0.5em;
   }
   &--b-margin-large {
     margin-bottom: 1.6em;
   }
+}
+/*.headline {
+  
+
+  }
+ 
+ 
+ 
   &--no-t-margin {
     margin-top: 0;
   }
 }
+*/

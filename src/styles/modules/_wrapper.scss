@@ -1,9 +1,9 @@
 .wrapper {
-  //background-color: green;
   overflow: hidden;
+  //background-color: green;
+
   padding-left: 18px;
   padding-right: 18px;
-
   max-width: 1236px; // add back from padding left right
   margin-left: auto;
   margin-right: auto;
@@ -20,6 +20,8 @@
   &--narrow {
     max-width: 470px;
   }
+}
+/*
 
   &--no-padding-until-medium {
     padding-left: 0;
@@ -45,3 +47,4 @@
     }
   }
 }
+*/

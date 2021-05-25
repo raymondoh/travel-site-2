@@ -1,5 +1,18 @@
 .page-section {
   padding: 1.2rem 0;
+  @include tablet {
+    padding: 4.5rem 0;
+  }
+
+  &--blue {
+    background-color: $mainBlue;
+    color: $white;
+  }
+}
+
+/*
+.page-section {
+  padding: 1.2rem 0;
   @include medium {
     padding: 4.5rem 0;
   }
@@ -26,7 +39,7 @@
     @include large {
       background-image: url("./images/testimonials-bg.jpg");
       background-color: $colorPrimary;
-      background-position: top center; /* Center the image */
+      background-position: top center; // Center the image 
       background-size: cover;
       background-repeat: no-repeat;
       // height: 80vh;
@@ -34,3 +47,4 @@
     }
   }
 }
+*/

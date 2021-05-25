@@ -1,16 +1,29 @@
 .btn {
   &:link,
   &:visited {
-    background-color: $colorPrimary;
+    background-color: $mainBlue;
     color: $white;
     text-decoration: none;
     display: inline-block; // needed for padding
     padding: 0.75rem 1.2rem;
   }
-
   &--orange {
-    background-color: $colorSecondary !important;
+    background-color: $mainOrange !important;
   }
+
+  &--large {
+    margin-top: 1rem;
+    padding: 1.1rem 1.9rem !important;
+    @include phone {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+/*
+
+
+ 
   &--large {
     margin-top: 1rem;
     padding: 1.1rem 1.9rem !important;
@@ -27,3 +40,4 @@
 .btn-service {
   @include button(darken($red, 20), darken($red, 10), $white);
 }
+*/

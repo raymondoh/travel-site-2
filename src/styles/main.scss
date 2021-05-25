@@ -1,6 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-//@import "normalize.css";
-//@import "./base/global";
-@import "./components/test1";
+@import "base/variables";
+@import "base/mixins";
+@import "base/global";
+
+@import "modules/hero";
+@import "modules/button";
+@import "modules/wrapper";
+@import "modules/page-section";
+@import "modules/headline";
+@import "modules/row";
+
+/*
+
+
+
+
+
+
+
+
+@import "modules/section-title";
+@import "modules/feature-item";
+
+@import "modules/generic-content-container";
+@import "modules/primary-nav";
+@import "modules/header";
+
+
+@import "modules/testimonial";
+@import "modules/footer";
+
+@import "modules/reveal-item";
+@import "modules/modal";
+@import "modules/social-icons";
+@import "modules/client-area";
+
+*/

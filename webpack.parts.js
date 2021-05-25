@@ -14,7 +14,7 @@ const PurgeCSSPlugin = require("purgecss-webpack-plugin");
 const ALL_FILES = glob.sync(path.join(__dirname, "src/*.js"));
 
 // FOR JS
-const APP_SOURCE = path.join(__dirname, "src");
+const APP_SOURCE = path.join(__dirname, "src"); // TRY
 
 // DEV SERVER
 exports.devServer = () => ({
@@ -24,8 +24,8 @@ exports.devServer = () => ({
     before: function (app, server, compiler) {
       server._watch("./src/*.html");
     },
-    port: 8080,
-    //host: "0.0.0.0",
+    port: 8080, // or port: 3000
+    //host: "0.0.0.0", // for network devices eg phone
     hot: true,
     open: true,
     stats: "errors-only",
@@ -41,7 +41,7 @@ exports.page = () => ({
     new HtmlWebpackPlugin({
       title: "Webpack boilerplate",
       template: path.resolve(__dirname, "./src/template.html"),
-      //template: "./src/template.html",
+      //template: "./src/template.html", // TRY
       filename: "index.html",
       inject: true,
       hash: true,
@@ -78,7 +78,7 @@ exports.extractSCSS = ({ options = {}, loaders = [] } = {}) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: { publicPath: "/" },
+              options: { publicPath: "/" }, // for images??
             },
             //"css-loader?url=false",
             "css-loader",
@@ -109,9 +109,33 @@ exports.loadImages = ({ limit } = {}) => ({
   module: {
     rules: [
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, //SVG?
         type: "asset",
-        //parser: { dataUrlCondition: { maxSize: limit } },
+        // type: "asset/resource", TRY
+        //parser: { dataUrlCondition: { maxSize: limit } }, // TRY
+      },
+    ],
+  },
+});
+
+// LOAD RESPONSIVE IMAGES
+exports.responsiveImages = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png)$/i,
+        loader: "responsive-loader",
+        options: {
+          // If you want to enable sharp support:
+          // adapter: require('responsive-loader/sharp')
+          sizes: [300, 600, 1200, 2000],
+          placeholder: true,
+          placeholderSize: 50,
+          adapter: require("responsive-loader/sharp"),
+          name: "[name].[hash].[ext]",
+          outputPath: "images",
+          esModule: false,
+        },
       },
     ],
   },

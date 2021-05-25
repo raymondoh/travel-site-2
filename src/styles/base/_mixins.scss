@@ -1,39 +1,4 @@
 // to use mixin: @include clearfix
-@mixin clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-// MEDIA QUERY MANAGER
-//Grid & responsive
-$breakpoint: (
-  small: 530px,
-  medium: 800px,
-  large: 1010px,
-);
-
-// Media queries
-@mixin small {
-  @media only screen and (min-width: map-get($map: $breakpoint, $key: small)) {
-    @content;
-  }
-}
-@mixin medium {
-  @media only screen and (min-width: map-get($map: $breakpoint, $key: medium)) {
-    @content;
-  }
-}
-@mixin large {
-  @media only screen and (min-width: map-get($map: $breakpoint, $key: large)) {
-    @content;
-  }
-}
-
-// eg. to use mixin: @include clearfix
-
 // @mixin clearfix {
 //   &::after {
 //     content: "";
@@ -41,6 +6,7 @@ $breakpoint: (
 //     clear: both;
 //   }
 // }
+
 @mixin clearfix {
   *zoom: 1;
   &:before,
@@ -111,7 +77,8 @@ $breakpoint: (
   desktop: 1024px,
 );
 
-// Media queries
+// MEDIA QUERY MANAGER
+//Grid & responsive
 @mixin phone {
   @media only screen and (min-width: map-get($map: $breakpoint, $key: phone)) {
     @content;

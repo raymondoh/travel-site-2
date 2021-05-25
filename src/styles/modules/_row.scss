@@ -1,6 +1,5 @@
 .row {
   @include clearfix;
-
   //background-color: yellow;
 
   &--t-padding {
@@ -33,7 +32,7 @@
     margin-bottom: 1rem;
   }
 
-  @include medium {
+  @include tablet {
     &__b-margin-until-medium {
       margin-bottom: 0;
     }
@@ -60,7 +59,7 @@
     }
   }
 
-  @include large {
+  @include desktop {
     &__b-margin-until-large {
       margin-bottom: 0;
     }
@@ -90,7 +89,7 @@
   /* Begin equal height rules*/
 
   .flexbox &--equal-height-at-medium {
-    @include medium {
+    @include tablet {
       display: flex;
     }
 
@@ -113,7 +112,7 @@
 
   /* Begin Equal Height Rules */
   &--equal-height-at-medium {
-    @include medium {
+    @include tablet {
       display: flex;
     }
 
@@ -123,7 +122,7 @@
     }
   }
   &--equal-height-at-large {
-    @include large {
+    @include desktop {
       display: flex;
     }
 

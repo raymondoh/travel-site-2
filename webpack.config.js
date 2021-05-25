@@ -13,13 +13,13 @@ const commonConfig = merge([
       main: path.resolve(__dirname, "./src/index.js"),
     },
     output: {
-      //path: path.resolve(__dirname, "./dist"),
+      //path: path.resolve(__dirname, "dist"), // TRY
       path: path.resolve(__dirname, "./dist"),
       filename: "js/[name].bundle.js",
       //filename: "assets/js/[name].js",
       //publicPath: "./",
     },
-    // entry: "./src/index.js",
+    // entry: "./src/index.js", // SORT OUT MESS
     // output: {
     //   filename: "js/bundled.js",
     //   path: path.resolve(process.cwd(), "dist"),
@@ -32,10 +32,11 @@ const commonConfig = merge([
   parts.clean(),
   parts.page(),
   parts.extractSCSS(),
-  //parts.loadImages({ limit: 150000 }),
+  //parts.loadImages({ limit: 150000 }),// TRY
   parts.loadImages(),
+  parts.responsiveImages(),
   parts.loadJavaScript(), // move to production?
-  parts.copy(),
+  parts.copy(), // TRY DELETE
   //parts.loadHtml(),
   //parts.loadSvg(),
 ]);
