@@ -20,13 +20,18 @@
   &--narrow {
     max-width: 470px;
   }
-}
-/*
+
+  &--b-margin {
+    margin-bottom: 1rem;
+    @include phone {
+      margin-bottom: 3.875rem;
+    }
+  }
 
   &--no-padding-until-medium {
     padding-left: 0;
     padding-right: 0;
-    @include large {
+    @include desktop {
       padding-left: 18px;
       padding-right: 18px;
     }
@@ -34,17 +39,16 @@
   &--no-padding-until-large {
     padding-left: 0;
     padding-right: 0;
-    @include large {
+    @include desktop {
       padding-left: 18px;
       padding-right: 18px;
     }
   }
+}
+/*
 
-  &--b-margin {
-    margin-bottom: 1rem;
-    @include small {
-      margin-bottom: 3.875rem;
-    }
-  }
+
+
+  
 }
 */

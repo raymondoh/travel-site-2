@@ -2,14 +2,14 @@
   position: relative;
   padding-bottom: 2.5rem;
 
-  @include small {
+  @include phone {
     padding-left: 94px;
   }
 
   &__icon {
     display: block;
     margin: 0 auto;
-    @include small {
+    @include phone {
       position: absolute;
       left: 0;
     }
@@ -22,7 +22,7 @@
     margin-top: 0.7em;
     text-align: center;
 
-    @include small {
+    @include phone {
       font-size: 1.875rem;
       margin-top: 1em;
       text-align: left;

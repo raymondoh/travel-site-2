@@ -1,5 +1,5 @@
 .footer {
-  background-color: $colorPrimary;
+  background-color: $mainBlue;
   color: $white;
   padding: 0.9rem 0;
   text-align: center;
@@ -9,7 +9,7 @@
     margin: 1rem;
     font-weight: 200;
 
-    @include medium {
+    @include tablet {
       display: inline;
       margin-bottom: 0;
       margin-right: 1.4rem;

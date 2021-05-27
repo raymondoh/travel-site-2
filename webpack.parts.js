@@ -7,14 +7,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-
 // PURGE CSS
 const glob = require("glob");
 const PurgeCSSPlugin = require("purgecss-webpack-plugin");
 const ALL_FILES = glob.sync(path.join(__dirname, "src/*.js"));
-
-// FOR JS
-const APP_SOURCE = path.join(__dirname, "src"); // TRY
 
 // DEV SERVER
 exports.devServer = () => ({
@@ -41,7 +37,6 @@ exports.page = () => ({
     new HtmlWebpackPlugin({
       title: "Webpack boilerplate",
       template: path.resolve(__dirname, "./src/template.html"),
-      //template: "./src/template.html", // TRY
       filename: "index.html",
       inject: true,
       hash: true,
@@ -78,10 +73,11 @@ exports.extractSCSS = ({ options = {}, loaders = [] } = {}) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: { publicPath: "/" }, // for images??
+              //options: {
+              //publicPath: "/",
+              //}, // for images?
             },
-            //"css-loader?url=false",
-            "css-loader",
+            "css-loader?url=false",
             "postcss-loader",
             "sass-loader",
           ].concat(loaders),
@@ -100,7 +96,11 @@ exports.extractSCSS = ({ options = {}, loaders = [] } = {}) => {
 // MINIMISE CSS
 exports.minifyCSS = ({ options }) => ({
   optimization: {
-    minimizer: [new CssMinimizerPlugin({ minimizerOptions: options })],
+    minimizer: [
+      new CssMinimizerPlugin({
+        minimizerOptions: options,
+      }),
+    ],
   },
 });
 
@@ -111,15 +111,14 @@ exports.loadImages = ({ limit } = {}) => ({
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, //SVG?
         type: "asset",
-        // type: "asset/resource", TRY
-        //parser: { dataUrlCondition: { maxSize: limit } }, // TRY
+        //parser: { dataUrlCondition: { maxSize: limit } }, // TRy
       },
     ],
   },
 });
 
 // LOAD RESPONSIVE IMAGES
-exports.responsiveImages = () => ({
+exports.loadResponsiveImages = () => ({
   module: {
     rules: [
       {
@@ -158,14 +157,20 @@ exports.loadJavaScript = () => ({
 
 // MINIFY JS
 exports.minifyJavaScript = () => ({
-  optimization: { minimizer: [new TerserPlugin()] },
+  optimization: {
+    minimizer: [new TerserPlugin()],
+  },
 });
 
 // DEVTOOLS
-exports.generateSourceMaps = ({ type }) => ({ devtool: type });
+exports.generateSourceMaps = ({ type }) => ({
+  devtool: type,
+});
 
 // CLEAN DIST FOLDER
-exports.clean = () => ({ plugins: [new CleanWebpackPlugin()] });
+exports.clean = () => ({
+  plugins: [new CleanWebpackPlugin()],
+});
 
 // ELIMINATE UNUSED CSS
 // exports.eliminateUnusedCSS = () => ({

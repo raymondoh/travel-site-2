@@ -8,7 +8,7 @@ body {
 
 .large-hero {
   background: $bg;
-  //background-image: url("../images/testimonials-bg.jpg");
+  background-image: url("../images/testimonials-bg.jpg") !important;
   background-repeat: no-repeat;
   background-position: center;
 }

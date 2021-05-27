@@ -4,39 +4,26 @@ const { merge } = require("webpack-merge");
 const parts = require("./webpack.parts");
 
 const commonConfig = merge([
-  // {
-  //   //entry: ["./src"],
-  //   entry: [paths.src + "/index.js"],
-  // },
   {
     entry: {
       main: path.resolve(__dirname, "./src/index.js"),
     },
     output: {
-      //path: path.resolve(__dirname, "dist"), // TRY
-      path: path.resolve(__dirname, "./dist"),
+      //path: path.resolve(__dirname, "dist"), // works
+      //path: path.resolve(__dirname, "./dist"),// works
+      path: path.resolve(process.cwd(), "dist"),
       filename: "js/[name].bundle.js",
-      //filename: "assets/js/[name].js",
-      //publicPath: "./",
+      publicPath: "", // or comment out
     },
-    // entry: "./src/index.js", // SORT OUT MESS
-    // output: {
-    //   filename: "js/bundled.js",
-    //   path: path.resolve(process.cwd(), "dist"),
-    //   assetModuleFilename: "images/[hash][ext][query]",
-    //   //filename: "js/[name].[contenthash].bundled.js", // up to us
-    //   //path: path.resolve(process.cwd(), "dist"),
-    //publicPath: "",
-    // },
   },
   parts.clean(),
   parts.page(),
+  parts.loadJavaScript(), // move to production?
   parts.extractSCSS(),
   //parts.loadImages({ limit: 150000 }),// TRY
   parts.loadImages(),
-  parts.responsiveImages(),
-  parts.loadJavaScript(), // move to production?
-  parts.copy(), // TRY DELETE
+  parts.loadResponsiveImages(),
+  parts.copy(), //
   //parts.loadHtml(),
   //parts.loadSvg(),
 ]);
@@ -44,7 +31,6 @@ const commonConfig = merge([
 const productionConfig = merge([
   parts.minifyJavaScript(),
   parts.minifyCSS({ options: { preset: ["default"] } }),
-
   parts.generateSourceMaps({ type: "source-map" }),
   //parts.eliminateUnusedCSS(), //PROBLEM
   { optimization: { splitChunks: { chunks: "all" } } },
@@ -64,10 +50,7 @@ const productionConfig = merge([
   },
 ]);
 
-const developmentConfig = merge([
-  parts.devServer(),
-  parts.generateSourceMaps({ type: "eval-cheap-source-map" }),
-]);
+const developmentConfig = merge([parts.devServer(), parts.generateSourceMaps({ type: "eval-cheap-source-map" })]);
 
 const getConfig = (mode) => {
   switch (mode) {
