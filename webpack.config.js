@@ -5,38 +5,38 @@ const parts = require("./webpack.parts");
 
 const commonConfig = merge([
   {
-    // entry: {
-    //   main: path.resolve(__dirname, "./src/index.js"),
-    // },
-    // output: {
-    //   //path: path.resolve(__dirname, "dist"), // works
-    //   //path: path.resolve(__dirname, "./dist"),// works
-    //   path: path.resolve(process.cwd(), "dist"),
-    //   filename: "scripts/[name].bundle.js",
-    //   publicPath: "", // or comment out
-    // },
-
     entry: {
-      index: {
-        import: "./src/index.js",
-        dependOn: "shared",
-      },
-      another: {
-        import: "./src/scripts/modules/RevealOnScroll.js",
-        dependOn: "shared",
-      },
-      shared: "lodash",
+      main: path.resolve(__dirname, "./src/index.js"),
     },
     output: {
-      filename: "scripts/[name].bundle.js",
-      path: path.resolve(__dirname, "dist"),
-      clean: true,
+      //path: path.resolve(__dirname, "dist"), // works
+      //path: path.resolve(__dirname, "./dist"),// works
+      path: path.resolve(process.cwd(), "dist"),
+      filename: "scripts/[name].[chunkhash].bundle.js",
+      publicPath: "", // or comment out
     },
-    optimization: {
-      splitChunks: {
-        chunks: "all",
-      },
-    },
+
+    // entry: {
+    //   index: {
+    //     import: "./src/index.js",
+    //     dependOn: "shared",
+    //   },
+    //   another: {
+    //     import: "./src/scripts/modules/RevealOnScroll.js",
+    //     dependOn: "shared",
+    //   },
+    //   shared: "lodash",
+    // },
+    // output: {
+    //   filename: "scripts/[name].bundle.js",
+    //   path: path.resolve(__dirname, "dist"),
+    //   clean: true,
+    // },
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: "all",
+    //   },
+    // },
   },
   parts.clean(),
   parts.page(),
@@ -57,20 +57,20 @@ const productionConfig = merge([
   //parts.eliminateUnusedCSS(), //PROBLEM
 
   //ORIGINAL
-  //{ optimization: { splitChunks: { chunks: "all" } } },
-  // {
-  //   optimization: {
-  //     splitChunks: {
-  //       cacheGroups: {
-  //         commons: {
-  //           test: /[\\/]node_modules[\\/]/,
-  //           name: "vendor",
-  //           chunks: "initial",
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
+  { optimization: { splitChunks: { chunks: "all" } } },
+  {
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendor",
+            chunks: "initial",
+          },
+        },
+      },
+    },
+  },
 ]);
 
 const developmentConfig = merge([

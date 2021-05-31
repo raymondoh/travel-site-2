@@ -8,6 +8,7 @@ import StickyHeader from "./scripts/modules/StickyHeader";
 //import Modal from "./scripts/modules/Modal";
 import "normalize.css";
 import "./styles/main.scss";
+console.log("yes");
 
 //new Modal();
 let mobileMenu = new MobileMenu();
