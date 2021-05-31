@@ -29,31 +29,41 @@
   </head>
   <body>
     <!-- Header -->
-    <header>
-      <img src="images/icons/clear-view-escapes.svg" alt="View Eacapes logo" />
-      <a href="#" class="btn">Get in Touch</a>
-      <nav>
+    <header class="site-header">
+      <div class="wrapper">
+
+      <div class="site-header__logo">
+        <img src="images/icons/clear-view-escapes.svg" alt="View Eacapes logo" />
+      </div>
+      <!-- Mobile icon -->
+      <div class="site-header__menu-icon">
+        <div class="site-header__menu-icon__middle"></div>
+      </div>
+
+
+      <div class="site-header__menu-content">
+        <div class="site-header__btn-container">
+          <a href="#" class="btn open-modal">Get in Touch</a>
+        </div>
+     
+      <nav class="primary-nav primary-nav--pull-right">
         <ul>
-          <li>
-            <a href="#our-beginning">Our Beginning</a>
-          </li>
-          <li>
-            <a href="#features">Features</a>
-          </li>
-          <li>
-            <a href="#testimonials">Testimonials</a>
-          </li>
+          <li><a href="#our-beginning" id="our-beginning-link">Our Beginning</a></li>
+          <li><a href="#features" id="features-link">Features</a></li>
+          <li><a href="#testimonials" id="testimonials-link">Testimonials</a></li>
         </ul>
       </nav>
+    </div>
+    </div>
     </header>
     <!-- Hero -->
     <div class="large-hero">
-      <picture>
+      <picture  class="large-hero__image">
         <source
           srcset="images/hero--large.jpg 1920w, images/hero--large-hi-dpi.jpg 3840w"
           media="(min-width: 1380px)"
         />
-        <source
+        <sources
           srcset="images/hero--medium.jpg 1380w, images/hero--medium-hi-dpi.jpg 2760w"
           media="(min-width: 990px)"
         />
@@ -61,7 +71,7 @@
         <img
           srcset="images/hero--smaller.jpg 640w, images/hero--smaller-hi-dpi.jpg 1280w"
           alt="Coastal view of ocean and mountains"
-          class="large-hero__image"
+         
         />
       </picture>
 
@@ -71,7 +81,7 @@
           <h2 class="large-hero__subtitle">One trip away.</h2>
           <p class="large-hero__description">We create soul restoring journeys that inspire you to be you.</p>
           <p>
-            <a href="#" class="btn btn--orange btn--large">Get Started Today</a>
+            <a href="#" class="btn btn--orange btn--large open-modal">Get Started Today</a>
           </p>
         </div>
       </div>
@@ -79,7 +89,7 @@
 
     <!-- Our Beginning -->
 
-    <div id="our-beginning" class="page-section">
+    <div id="our-beginning" class="page-section" data-matching-link="#our-beginning-link">
       <div class="wrapper">
         <h2 class="headline headline--centered headline--light headline--b-margin-small">
           The first trip we planned
@@ -100,9 +110,9 @@
           <strong>better for everyone.</strong>
         </h3>
         <div class="wrapper wrapper--medium wrapper--b-margin">
-          <img
+          <img class="lazyload"
             sizes="(min-width: 970px) 976px, 100vw"
-            srcset="images/first-trip-low-res.jpg 565w, images/first-trip.jpg 976w, images/first-trip-hi-dpi.jpg 1952w"
+            data-srcset="images/first-trip-low-res.jpg 565w, images/first-trip.jpg 976w, images/first-trip-hi-dpi.jpg 1952w"
             alt="Couple walking down a street."
           />
         </div>
@@ -112,16 +122,16 @@
             <picture>
               <source
                 sizes="404px"
-                srcset="images/our-start.jpg 404w, images/our-start-hi-dpi.jpg 808w"
+                data-srcset="images/our-start.jpg 404w, images/our-start-hi-dpi.jpg 808w"
                 media="(min-width: 1020px)"
               />
               <source
                 sizes="320px"
-                srcset="images/our-start-portrait.jpg 382w, images/our-start-portrait-hi-dpi.jpg 764w"
+                data-srcset="images/our-start-portrait.jpg 382w, images/our-start-portrait-hi-dpi.jpg 764w"
                 media="(min-width: 800px)"
               />
-              <img
-                srcset="images/our-start-landscape.jpg 800w, images/our-start-landscape-hi-dpi.jpg 1600w"
+              <img class="lazyload"
+                data-srcset="images/our-start-landscape.jpg 800w, images/our-start-landscape-hi-dpi.jpg 1600w"
                 alt="Our Founder, Jane Doe"
               />
             </picture>
@@ -156,8 +166,9 @@
         </div>
       </div>
     </div>
+
     <!-- Features -->
-    <div id="features" class="page-section page-section--blue">
+    <div id="features" class="page-section page-section--blue" data-matching-link="#features-link">
       <div class="wrapper">
         <h2 class="section-title">
           <img class="section-title__icon" src="images/icons/star.svg" alt="star" />Our <strong>Features</strong>
@@ -231,7 +242,7 @@
           <div class="row__large-4">
             <div class="testimonial">
               <div class="testimonial__photo">
-                <img src="images/testimonial-jane.jpg" alt="Jane Doe" />
+                <img class="lazyload" sizes="160" data-srcset="images/testimonial-jane.jpg" alt="Jane Doe" />
               </div>
 
               <h3 class="testimonial__title">Jane Doe</h3>
@@ -248,7 +259,7 @@
           <div class="row__large-4">
             <div class="testimonial">
               <div class="testimonial__photo">
-                <img src="images/testimonial-john.jpg" alt="John Smith" />
+                <img class="lazyload" sizes="160" data-srcset="images/testimonial-john.jpg" alt="John Smith" />
               </div>
               <h3 class="testimonial__title">John Smith</h3>
               <h4 class="testimonial__subtitle">4 Time Escaper</h4>
@@ -263,7 +274,7 @@
           <div class="row__large-4">
             <div class="testimonial testimonial--last">
               <div class="testimonial__photo">
-                <img src="images/testimonial-cat.jpg" alt="Cat McKitty" />
+                <img class="lazyload" sizes="160" data-srcset="images/testimonial-cat.jpg" alt="Cat McKitty" />
               </div>
               <h3 class="testimonial__title">Cat McKitty</h3>
               <h4 class="testimonial__subtitle">6 Time Escaper</h4>
@@ -292,29 +303,14 @@
               >Copyright &copy; <span class="date"> <span id="date"></span></span> Clear View Escapes. All rights
               reserved.</span
             >
-            <a href="#" class="btn btn--orange open-modal">Get in Touch</a>
+            <a href="#" class="btn btn--orange open-modal open-modal">Get in Touch</a>
           </p>
         </div>
       </footer>
 
    
-    <!-- Leave this commented out HTML here until you need it for an upcoming "modal" lesson
-    <div class="modal">
-      <div class="modal__inner">
-        <h2 class="section-title section-title--blue section-title--less-margin"><img src="images/icons/mail.svg" class="section-title__icon"> Get in <strong>Touch</strong></h2>
-        <div class="wrapper wrapper--narrow">
-          <p class="modal__description">We will have an online order system in place soon. Until then, connect with us on any of the platforms below!</p>
-        </div>
+    
   
-        <div class="social-icons">
-          <a href="#" class="social-icons__icon"><img src="images/icons/facebook.svg" alt="Facebook"></a>
-          <a href="#" class="social-icons__icon"><img src="images/icons/twitter.svg" alt="Twitter"></a>
-          <a href="#" class="social-icons__icon"><img src="images/icons/instagram.svg" alt="Instagram"></a>
-          <a href="#" class="social-icons__icon"><img src="images/icons/youtube.svg" alt="YouTube"></a>
-        </div>
-      </div>
-      <div class="modal__close">X</div>
-    </div>
-    This is the end of the "modal" reference HTML -->
+   
   </body>
 </html>

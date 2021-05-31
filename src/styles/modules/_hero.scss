@@ -1,19 +1,25 @@
 .large-hero {
-  position: relative;
   border-bottom: 10px solid $mainBlue;
+  display: grid;
+  grid-template-columns: 1fr;
+  @include tablet {
+    // height: 100vw;
+  }
   &__image {
-    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    img {
+      display: block;
+    }
   }
 
   &__text-content {
     //padding-top: 60px; // compensate for header
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    //go together
-    width: 100%;
     text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+
     //
   }
 
@@ -50,16 +56,3 @@
     }
   }
 }
-
-/*
-.large-hero {
- 
-  background-image: url("./images/hero--large.jpg");
-  background-color: #cccccc;
-  background-position: center; /* Center the image 
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 80vh;
-  width: 100%;
-}
-*/

@@ -5,15 +5,37 @@ const parts = require("./webpack.parts");
 
 const commonConfig = merge([
   {
+    // entry: {
+    //   main: path.resolve(__dirname, "./src/index.js"),
+    // },
+    // output: {
+    //   //path: path.resolve(__dirname, "dist"), // works
+    //   //path: path.resolve(__dirname, "./dist"),// works
+    //   path: path.resolve(process.cwd(), "dist"),
+    //   filename: "scripts/[name].bundle.js",
+    //   publicPath: "", // or comment out
+    // },
+
     entry: {
-      main: path.resolve(__dirname, "./src/index.js"),
+      index: {
+        import: "./src/index.js",
+        dependOn: "shared",
+      },
+      another: {
+        import: "./src/scripts/modules/RevealOnScroll.js",
+        dependOn: "shared",
+      },
+      shared: "lodash",
     },
     output: {
-      //path: path.resolve(__dirname, "dist"), // works
-      //path: path.resolve(__dirname, "./dist"),// works
-      path: path.resolve(process.cwd(), "dist"),
-      filename: "js/[name].bundle.js",
-      publicPath: "", // or comment out
+      filename: "scripts/[name].bundle.js",
+      path: path.resolve(__dirname, "dist"),
+      clean: true,
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "all",
+      },
     },
   },
   parts.clean(),
@@ -31,28 +53,33 @@ const commonConfig = merge([
 const productionConfig = merge([
   parts.minifyJavaScript(),
   parts.minifyCSS({ options: { preset: ["default"] } }),
-  parts.generateSourceMaps({ type: "source-map" }),
+  //parts.generateSourceMaps({ type: "source-map" }),
   //parts.eliminateUnusedCSS(), //PROBLEM
-  { optimization: { splitChunks: { chunks: "all" } } },
 
-  {
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
-            chunks: "initial",
-          },
-        },
-      },
-    },
-  },
+  //ORIGINAL
+  //{ optimization: { splitChunks: { chunks: "all" } } },
+  // {
+  //   optimization: {
+  //     splitChunks: {
+  //       cacheGroups: {
+  //         commons: {
+  //           test: /[\\/]node_modules[\\/]/,
+  //           name: "vendor",
+  //           chunks: "initial",
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 ]);
 
-const developmentConfig = merge([parts.devServer(), parts.generateSourceMaps({ type: "eval-cheap-source-map" })]);
+const developmentConfig = merge([
+  parts.devServer(),
+  //parts.generateSourceMaps({ type: "eval-cheap-source-map" })
+  parts.generateSourceMaps({ type: "inline-source-map" }),
+]);
 
-const getConfig = (mode) => {
+const getConfig = mode => {
   switch (mode) {
     case "production":
       return merge(commonConfig, productionConfig, { mode });

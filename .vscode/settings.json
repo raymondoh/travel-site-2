@@ -1,0 +1,7 @@
+{
+    "liveServer.settings.port": 5501,
+    "prettier.arrowParens": "avoid",
+    "prettier.printWidth": 200,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "html.format.wrapLineLength": 150
+}

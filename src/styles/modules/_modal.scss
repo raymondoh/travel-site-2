@@ -1,4 +1,58 @@
 .modal {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($white, 0.94);
+  z-index: 5;
+  display: flex;
+  transition: all 0.3s ease-out;
+  &__inner {
+    flex: 1;
+    margin: auto;
+  }
+  &__description {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.65;
+    font-size: 1.3rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 65px;
+    right: 44px;
+    font-size: 1.5rem;
+    color: $mainBlue;
+    cursor: pointer;
+    transform: scaleX(1.2);
+    transform-origin: 100% 0;
+
+    @include phone {
+      top: 71px;
+      right: 69px;
+    }
+    @include tablet {
+      top: 71px;
+      right: 94px;
+    }
+    &:hover {
+      color: $mainOrange;
+    }
+  }
+  &--is-visible {
+    // js properties
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.2);
+  }
+}
+/*
+.modal {
   opacity: 0;
   visibility: hidden;
   transform: scale(1.2);
@@ -8,9 +62,8 @@
   left: 0;
   right: 0;
   background-color: rgba($white, 0.94);
-  z-index: 5;
-  //flex
-  display: flex;
+ 
+  
   transition: all 0.3s ease-out;
 
   &--is-visible {
@@ -37,31 +90,32 @@
     top: 30px;
     right: 40px;
     font-size: 1.5rem;
-    @include small {
+    @include phone {
       top: 60px;
       right: 60px;
       z-index: 10;
       font-size: 2rem;
     }
-    @include medium {
+    @include tablet {
       top: 80px;
       right: 80px;
       z-index: 10;
       font-size: 2rem;
     }
-    @include large {
+    @include desktop {
       top: 100px;
       right: 100px;
     }
 
-    color: $colorPrimary;
+    color: $mainBlue;
     cursor: pointer;
     transform: scaleX(1.2);
     transform-origin: 100% 0;
     transition: color 0.3s ease-out;
 
     &:hover {
-      color: $colorSecondary;
+      color: $mainOrange;
     }
   }
 }
+*/

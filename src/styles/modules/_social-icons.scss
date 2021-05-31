@@ -3,13 +3,13 @@
 
   &__icon {
     position: relative;
-    background-color: $colorPrimary;
+    background-color: $mainBlue;
     display: inline-block;
     width: 33%;
     height: 72px;
     margin: 0 5px 5px 5px;
 
-    @include small {
+    @include phone {
       width: 72px;
     }
 
